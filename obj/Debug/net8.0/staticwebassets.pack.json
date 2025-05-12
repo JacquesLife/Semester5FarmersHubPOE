@@ -1,0 +1,313 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/obj/Debug/net8.0/scopedcss/projectbundle/Programming3A.bundle.scp.css",
+      "PackagePath": "staticwebassets/Programming3A.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/css/bootstrap.css",
+      "PackagePath": "staticwebassets/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/js/qr.js",
+      "PackagePath": "staticwebassets/js/qr.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/davidshimjs-qrcodejs-04f46c6/.gitignore",
+      "PackagePath": "staticwebassets/lib/davidshimjs-qrcodejs-04f46c6/.gitignore"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/davidshimjs-qrcodejs-04f46c6/LICENSE",
+      "PackagePath": "staticwebassets/lib/davidshimjs-qrcodejs-04f46c6"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/davidshimjs-qrcodejs-04f46c6/README.md",
+      "PackagePath": "staticwebassets/lib/davidshimjs-qrcodejs-04f46c6/README.md"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/davidshimjs-qrcodejs-04f46c6/bower.json",
+      "PackagePath": "staticwebassets/lib/davidshimjs-qrcodejs-04f46c6/bower.json"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/davidshimjs-qrcodejs-04f46c6/index-svg.html",
+      "PackagePath": "staticwebassets/lib/davidshimjs-qrcodejs-04f46c6/index-svg.html"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/davidshimjs-qrcodejs-04f46c6/index.html",
+      "PackagePath": "staticwebassets/lib/davidshimjs-qrcodejs-04f46c6/index.html"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/davidshimjs-qrcodejs-04f46c6/index.svg",
+      "PackagePath": "staticwebassets/lib/davidshimjs-qrcodejs-04f46c6/index.svg"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/davidshimjs-qrcodejs-04f46c6/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/davidshimjs-qrcodejs-04f46c6/jquery.min.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/davidshimjs-qrcodejs-04f46c6/qrcode.min.js",
+      "PackagePath": "staticwebassets/lib/davidshimjs-qrcodejs-04f46c6/qrcode.min.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/lib/qrcode.js",
+      "PackagePath": "staticwebassets/lib/qrcode.js"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Programming3A.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.Programming3A.props",
+      "PackagePath": "build\\Programming3A.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Programming3A.props",
+      "PackagePath": "buildMultiTargeting\\Programming3A.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Programming3A.props",
+      "PackagePath": "buildTransitive\\Programming3A.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
