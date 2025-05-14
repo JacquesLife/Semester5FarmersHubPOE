@@ -230,4 +230,4 @@ Password: Admin123!
 
 - [Setting up File Services](https://www.youtube.com/watch?v=hcoKLORWbjY)
 
-- [Claude for Frontend Help] (https://claude.ai/new)
+- [Claude for Frontend Help](https://claude.ai/new)
