@@ -224,7 +224,7 @@ Password: Admin123!
 
 - [How to Setup Roles Video](https://www.youtube.com/watch?app=desktop&v=Y6DCP-yH-9Q)
 
-- [Complex Models](vhttps://learn.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+- [Complex Models](https://learn.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
 
 - [Setting up SQLite Video](https://www.youtube.com/watch?v=S7SdtcIr28s)
 
