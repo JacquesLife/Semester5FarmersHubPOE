@@ -1,3 +1,12 @@
+/// <summary>
+/// This class manages file uploads and deletions.
+/// It uses the IWebHostEnvironment to get the web root path.
+/// The SaveFileAsync method saves the uploaded file to the uploads directory in wwwroot.
+/// The DeleteFile method deletes a file from the server.
+/// </summary>
+/// <reference = https://www.youtube.com/watch?v=hcoKLORWbjY
+
+
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -58,3 +67,6 @@ namespace Programming3A.Services
         }
     }
 } 
+
+
+// --------------------------------------------------End of File-----------------------------------------------------

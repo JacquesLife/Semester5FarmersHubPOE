@@ -58,6 +58,8 @@ I used the Bootswatch Minty theme for the UI. I wanted to keep it simple and cle
 - Remove Lorem Ipsum text 
 - Better functionality for admin and bug fixing for this role
 - More frequent commits to GitHub would have made my life easier
+- Some clickable are just for show and don't do anything or route to nothing
+- Get JavaScript into it site.js file and not in the cshtml file
 
 
 # Important Project Structure
@@ -219,3 +221,11 @@ Password: Admin123!
 - [Pixelbay](https://pixabay.com/)
   
 - [CSS Tricks](https://css-tricks.com/)
+
+- [How to Setup Roles Video](https://www.youtube.com/watch?app=desktop&v=Y6DCP-yH-9Q)
+
+- [Complex Models](vhttps://learn.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+
+- [Setting up SQLite Video](https://www.youtube.com/watch?v=S7SdtcIr28s)
+
+- [Setting up File Services](https://www.youtube.com/watch?v=hcoKLORWbjY)

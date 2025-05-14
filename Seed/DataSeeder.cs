@@ -1,3 +1,9 @@
+/// <summary>
+/// This is the DataSeeder class that seeds the database with roles and an admin user.
+/// It uses the ASP.NET Core Identity framework to manage user roles and authentication.
+/// </summary>
+/// reference = https://www.youtube.com/watch?app=desktop&v=Y6DCP-yH-9Q
+
 using System;
 using Programming3A.Constants;
 using Microsoft.AspNetCore.Identity;
@@ -21,11 +27,12 @@ public static class DataSeeder
             }
         }
         
-        // Seed Admin User
+        // Seed Admin User (Basic Password and Email for Prototype) would enhance in real application
         string adminEmail = "admin@farmhub.com";
         string adminPassword = "Admin123!";
         if (await userManager.FindByEmailAsync(adminEmail) == null)
         {
+            // Create the admin user 
             var adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
             var result = await userManager.CreateAsync(adminUser, adminPassword);
             if (result.Succeeded)
@@ -35,3 +42,5 @@ public static class DataSeeder
         }
     }
 }
+
+// ------------------------------------------End of File-----------------------------------------------------

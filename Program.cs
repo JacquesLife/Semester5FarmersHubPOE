@@ -1,3 +1,22 @@
+/// <summary>
+/// This is the Program.cs file for the ASP.NET Core MVC application.
+/// It sets up the application, configures services, and runs the application.
+/// It uses Entity Framework Core with SQLite for the database.
+/// It also sets up ASP.NET Core Identity for user authentication and authorization.
+/// The application is designed to be a prototype for a farm management system.
+/// <summary>
+/// <All remarks>
+// /// - [Microsoft Docs - ASP.NET Core Identity](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0)
+// - [Cli Tools for ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/tools/dotnet-aspnet-codegenerator?view=aspnetcore-9.0)
+// - [Bootswatch Themes](https://bootswatch.com/minty/)
+// - [Pixelbay](https://pixabay.com/)
+// - [CSS Tricks](https://css-tricks.com/)
+// - [How to Setup Roles Video](https://www.youtube.com/watch?app=desktop&v=Y6DCP-yH-9Q)
+// - [Complex Models](vhttps://learn.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+// - [Setting up SQLite Video](https://www.youtube.com/watch?v=S7SdtcIr28s)
+// - [Setting up File Services](https://www.youtube.com/watch?v=hcoKLORWbjY)
+// /// <remark>
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Programming3A.Database; 
@@ -57,3 +76,6 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.Run();
+
+
+// ------------------------------------------End of File-----------------------------------------------------

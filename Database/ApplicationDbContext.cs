@@ -1,3 +1,10 @@
+/// <summary>
+/// Short but crucial file responsible for setting up the database context.
+/// It inherits from IdentityDbContext to manage user authentication and authorization.
+/// It also contains DbSet properties for the FarmerModel and ProductModel. 
+/// It links with Identity framework to manage user roles and authentication.
+/// </summary>
+
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Programming3A.Models;
@@ -15,3 +22,5 @@ namespace Programming3A.Database
         public DbSet<ProductModel> Products { get; set; }
     }
 }
+
+//---------------------------------End of File-----------------------------------------------------

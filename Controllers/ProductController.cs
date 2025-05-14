@@ -1,3 +1,17 @@
+/// <summary>
+/// Another long file responsible for managing the products in the application.
+/// It was generated with CLI and is responsible for managing the products.
+/// It has methods for creating, editing, deleting, and viewing products much like FarmerController.
+/// It also has methods for filtering products by date.
+/// It uses the ApplicationDbContext to interact with the database.
+/// It uses the IFileService to handle file uploads.
+/// It uses the UserManager to get the current user and their roles.
+/// It uses the ILogger to log information and errors.
+/// It uses the Authorize attribute to restrict access to certain actions.
+/// </summary>
+/// <reference = https://learn.microsoft.com/en-us/aspnet/core/fundamentals/tools/dotnet-aspnet-codegenerator?view=aspnetcore-9.0
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,9 +48,16 @@ namespace Programming3A.Controllers
             _fileService = fileService;
         }
 
+        /// <summary>
+        /// Retrieves a list of products from the database.
+        /// If the user is a farmer, only their products are shown.
+        /// The products can be filtered by production date.
+        /// </summary>
+
         // GET: Product
         public async Task<IActionResult> Index(DateTime? fromDate, DateTime? toDate)
         {
+            // Log the date filter values
             _logger.LogInformation("Retrieving products with date filter - From: {FromDate}, To: {ToDate}", 
                 fromDate?.ToString("yyyy-MM-dd") ?? "any", 
                 toDate?.ToString("yyyy-MM-dd") ?? "any");
@@ -66,11 +87,13 @@ namespace Programming3A.Controllers
 
             if (fromDate.HasValue)
             {
+                // Ensure the date is set to the start of the day
                 query = query.Where(p => p.ProductionDate >= fromDate.Value.Date);
             }
 
             if (toDate.HasValue)
             {
+                // Ensure the date is set to the end of the day
                 query = query.Where(p => p.ProductionDate <= toDate.Value.Date);
             }
 
@@ -83,6 +106,11 @@ namespace Programming3A.Controllers
             return View(products);
         }
 
+        /// <summary>
+        /// Retrieves the details of a specific product.
+        /// If the product is not found, a 404 error is returned.
+        /// </summary>
+
         // GET: Product/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -91,6 +119,7 @@ namespace Programming3A.Controllers
                 return NotFound();
             }
 
+            // Retrieve the product with its farmer information
             var productModel = await _context.Products
                 .Include(p => p.Farmer)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
@@ -101,6 +130,12 @@ namespace Programming3A.Controllers
 
             return View(productModel);
         }
+
+        /// <summary>
+        /// Creates a new product.
+        /// Checks if the user has a farmer profile before allowing them to create a product.
+        /// If the user does not have a farmer profile, they are redirected to the home page.
+        /// </summary>
 
         // GET: Product/Create
         [Authorize(Roles = "Farmer")]
@@ -114,12 +149,21 @@ namespace Programming3A.Controllers
 
             if (farmer == null)
             {
+                // Log the warning and redirect to home
                 _logger.LogWarning("User without farmer profile attempted to access Create Product page");
                 return RedirectToAction("Index", "Home");
             }
 
             return View();
         }
+        /// <summary>
+        /// Creates a new product.
+        /// Validates the model state and checks if the user has a farmer profile.
+        /// If the user does not have a farmer profile, they are redirected to the home page.
+        /// Handles image upload and saves the product to the database.
+        /// If the product is created successfully, the user is redirected to the index page.
+        /// If there is an error, the user is shown the create product page with the error message.
+        /// </summary>
 
         // POST: Product/Create
         [HttpPost]
@@ -173,6 +217,7 @@ namespace Programming3A.Controllers
                     productModel.ImagePath = await _fileService.SaveFileAsync(productModel.ImageFile, "uploads/products");
                 }
 
+                // Set the production date to the current date if not provided
                 _logger.LogInformation("Creating product for farmer {FarmerId}. Product details: {@ProductModel}", 
                     farmer.FarmerId, 
                     new { productModel.ProductName, productModel.Category, productModel.Price });
@@ -185,13 +230,22 @@ namespace Programming3A.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+            // Handle exceptions
             catch (Exception ex)
             {
+                // Log the error
                 _logger.LogError(ex, "An error occurred while creating product");
                 ModelState.AddModelError("", "An error occurred while creating the product. Please try again.");
                 return View(productModel);
             }
         }
+
+        /// <summary>
+        /// Retrieves the edit page for a specific product.
+        /// Checks if the user has permission to edit the product.
+        /// If the user does not have permission, they are shown a forbidden error.
+        /// If the product is not found, a 404 error is returned.
+        /// </summary>
 
         // GET: Product/Edit/5
         [Authorize(Roles = "Farmer")]
@@ -202,6 +256,7 @@ namespace Programming3A.Controllers
                 return NotFound();
             }
 
+            // Retrieve the product with its farmer information
             var productModel = await _context.Products
                 .Include(p => p.Farmer)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
@@ -217,6 +272,7 @@ namespace Programming3A.Controllers
                 .AsNoTracking()
                 .FirstOrDefaultAsync(f => f.UserId == user.Id);
 
+            // Check if the farmer exists and matches the product's farmer
             if (farmer == null || farmer.FarmerId != productModel.FarmerId)
             {
                 _logger.LogWarning("Unauthorized attempt to edit product {ProductId} by user {UserId}", id, user.Id);
@@ -225,6 +281,15 @@ namespace Programming3A.Controllers
             
             return View(productModel);
         }
+
+        /// <summary>
+        /// Edits an existing product.
+        /// Validates the model state and checks if the user has permission to edit the product.
+        /// If the user does not have permission, they are shown a forbidden error.
+        /// Handles image upload and updates the product in the database.
+        /// If the product is updated successfully, the user is redirected to the index page.
+        /// If there is an error, the user is shown the edit product page with the error message.
+        /// </summary>
 
         // POST: Product/Edit/5
         [HttpPost]
@@ -243,6 +308,7 @@ namespace Programming3A.Controllers
                 .AsNoTracking()
                 .FirstOrDefaultAsync(f => f.UserId == user.Id);
 
+            // Check if the farmer exists and if they are the owner of the product
             if (farmer == null || farmer.FarmerId != productModel.FarmerId)
             {
                 _logger.LogWarning("Unauthorized attempt to edit product {ProductId} by user {UserId}", id, user.Id);
@@ -270,6 +336,7 @@ namespace Programming3A.Controllers
                     _context.Update(productModel);
                     await _context.SaveChangesAsync();
                 }
+                // Handle concurrency exception
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ProductModelExists(productModel.ProductId))
@@ -286,6 +353,13 @@ namespace Programming3A.Controllers
             return View(productModel);
         }
 
+        /// <summary>
+        /// Deletes a specific product.
+        /// Checks if the user has permission to delete the product.
+        /// If the user does not have permission, they are shown a forbidden error.
+        /// If the product is not found, a 404 error is returned.
+        /// </summary>
+
         // GET: Product/Delete/5
         [Authorize(Roles = "Farmer")]
         public async Task<IActionResult> Delete(int? id)
@@ -294,7 +368,7 @@ namespace Programming3A.Controllers
             {
                 return NotFound();
             }
-
+            // Retrieve the product with its farmer information
             var productModel = await _context.Products
                 .Include(p => p.Farmer)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
@@ -318,6 +392,15 @@ namespace Programming3A.Controllers
 
             return View(productModel);
         }
+
+        /// <summary>
+        /// Deletes a specific product.
+        /// Checks if the user has permission to delete the product.
+        /// If the user does not have permission, they are shown a forbidden error.
+        /// Handles image deletion and removes the product from the database.
+        /// If the product is deleted successfully, the user is redirected to the index page.
+        /// If there is an error, the user is shown the delete product page with the error message.
+        /// </summary>
 
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -363,3 +446,7 @@ namespace Programming3A.Controllers
         }
     }
 }
+
+
+
+// ---------------------------------End of File-----------------------------------------------------

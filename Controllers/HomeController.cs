@@ -1,3 +1,8 @@
+/// <summary>
+/// This is pretty much the default controller that is created when you create a new ASP.NET Core MVC project.
+/// It is the main controller for the application and handles the home page and privacy page.
+
+
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Programming3A.Models;
@@ -29,3 +34,6 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
+
+
+//---------------------------------------------------End of File-----------------------------------------------------

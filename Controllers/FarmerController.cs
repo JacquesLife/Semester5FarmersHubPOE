@@ -1,3 +1,14 @@
+/// <summary>
+/// This is quite a large file it was scaffolded using CLI and code generator then modified for FarmerHub.
+/// It contains excessive error handling and logging because CLI didn't handle foreign keys well (more in ReadMe).
+/// However once resolved it works well. is structured to be modular and mutable great for debugging.
+/// It contains CRUD operations for the FarmerModel and ProductModel.
+/// It also contains role management for the user roles.
+/// </summary>
+/// <reference = https://learn.microsoft.com/en-us/aspnet/core/fundamentals/tools/dotnet-aspnet-codegenerator?view=aspnetcore-9.0
+
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +46,10 @@ namespace Programming3A.Controllers
             // Ensure roles exist
             EnsureRolesExistAsync().Wait();
         }
+        /// <summary>
+        /// This method ensures that the roles "Employee" and "Farmer" exist in the database.
+        /// If they do not exist, it creates them.
+        /// </summary>
 
         private async Task EnsureRolesExistAsync()
         {
@@ -50,6 +65,13 @@ namespace Programming3A.Controllers
                 }
             }
         }
+
+        /// <summary>
+        /// This method retrieves the current user and their roles.
+        /// If the user is an employee, it retrieves all farmers.
+        /// If the user is a farmer, it retrieves only their profile.
+        /// It returns a list of farmers to the view.
+        /// </summary>
 
         // GET: Farmer
         public async Task<IActionResult> Index()
@@ -78,11 +100,18 @@ namespace Programming3A.Controllers
             return View(farmer != null ? new List<FarmerModel> { farmer } : new List<FarmerModel>());
         }
 
+        /// <summary>
+        /// This method retrieves the details of a specific farmer by their ID.
+        /// If the farmer is not found, it returns a NotFound result.
+        /// It includes the user's information.
+        /// </summary>
+
         // GET: Farmer/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
+                // Log the null ID case
                 _logger.LogWarning("Details called with null ID.");
                 return NotFound();
             }
@@ -93,12 +122,17 @@ namespace Programming3A.Controllers
 
             if (farmerModel == null)
             {
+                // Log the not found case
                 _logger.LogWarning("Farmer with ID {Id} not found.", id);
                 return NotFound();
             }
 
             return View(farmerModel);
         }
+        /// <summary>
+        /// This method displays the form for creating a new farmer.
+        /// It is only accessible to users with the "Employee" role.
+        /// </summary>
 
         // GET: Farmer/Create
         [Authorize(Roles = "Employee")]
@@ -106,6 +140,14 @@ namespace Programming3A.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// This method handles the form submission for creating a new farmer.
+        /// It validates the model state and creates a new user account for the farmer.
+        /// If successful, it redirects to the Index action.
+        /// If there are validation errors, it returns the view with the model.
+        /// It also logs the process and any errors that occur.
+        /// </summary>
 
         // POST: Farmer/Create
         [HttpPost]
@@ -175,6 +217,13 @@ namespace Programming3A.Controllers
             }
         }
 
+        /// <summary>
+        /// This method displays the form for editing a farmer's profile.
+        /// It checks the user's role and ensures they are authorized to edit the profile.
+        /// If the user is a farmer, they can only edit their own profile.
+        /// If the user is an employee, they can edit any farmer's profile.
+        /// </summary>
+
         // GET: Farmer/Edit/5
         [Authorize(Roles = "Employee,Farmer")]
         public async Task<IActionResult> Edit(int? id)
@@ -191,9 +240,12 @@ namespace Programming3A.Controllers
                 return Challenge();
             }
 
+            // Check if the user is in the Employee or Farmer role
+            // If not, return a forbidden response
             var isEmployee = await _userManager.IsInRoleAsync(currentUser, "Employee");
             var isFarmer = await _userManager.IsInRoleAsync(currentUser, "Farmer");
 
+            // If user is not in either role, return forbidden
             var farmerModel = await _context.Farmers
                 .Include(f => f.User)
                 .FirstOrDefaultAsync(m => m.FarmerId == id);
@@ -212,6 +264,14 @@ namespace Programming3A.Controllers
 
             return View(farmerModel);
         }
+
+        /// <summary>
+        /// This method handles the form submission for editing a farmer's profile.
+        /// It validates the model state and updates the farmer's information in the database.
+        /// If successful, it redirects to the Index action.
+        /// If there are validation errors, it returns the view with the model.
+        /// It also logs the process and any errors that occur.
+        /// </summary>
 
         // POST: Farmer/Edit/5
         [HttpPost]
@@ -262,6 +322,7 @@ namespace Programming3A.Controllers
             {
                 try
                 {
+                    // Update the farmer's information
                     _context.Update(farmerModel);
                     await _context.SaveChangesAsync();
                     _logger.LogInformation("Farmer updated successfully - ID: {Id}", id);
@@ -269,6 +330,7 @@ namespace Programming3A.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
+                    // Check if the farmer exists
                     if (!FarmerModelExists(farmerModel.FarmerId))
                     {
                         _logger.LogWarning("Farmer not found during update - ID: {Id}", id);
@@ -282,6 +344,7 @@ namespace Programming3A.Controllers
             }
             else
             {
+                // Log the model state errors
                 _logger.LogWarning("ModelState is invalid. Errors: {Errors}", 
                     string.Join(", ", ModelState.Values
                         .SelectMany(v => v.Errors)
@@ -290,6 +353,13 @@ namespace Programming3A.Controllers
 
             return View(farmerModel);
         }
+
+        /// <summary>
+        /// This method displays the confirmation page for deleting a farmer.
+        /// It checks the user's role and ensures they are authorized to delete the farmer.
+        /// If the user is a farmer, they can only delete their own profile.
+        /// If the user is an employee, they can delete any farmer's profile.
+        /// </summary>
 
         // GET: Farmer/Delete/5
         [Authorize(Roles = "Employee")]
@@ -306,6 +376,7 @@ namespace Programming3A.Controllers
             var isEmployee = await _userManager.IsInRoleAsync(user, "Employee");
             if (!isEmployee)
             {
+                // Log the unauthorized access attempt
                 _logger.LogWarning("Non-employee user attempted to delete farmer");
                 return Forbid();
             }
@@ -326,6 +397,14 @@ namespace Programming3A.Controllers
             return View(farmerModel);
         }
 
+        /// <summary>
+        /// This method handles the form submission for deleting a farmer.
+        /// It checks the user's role and ensures they are authorized to delete the farmer.
+        /// If the user is a farmer, they can only delete their own profile.
+        /// If the user is an employee, they can delete any farmer's profile.
+        /// It also deletes the associated user account and products.
+        /// </summary>
+
         // POST: Farmer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -343,6 +422,7 @@ namespace Programming3A.Controllers
             var isEmployee = await _userManager.IsInRoleAsync(user, "Employee");
             if (!isEmployee)
             {
+                // Log the unauthorized access attempt
                 _logger.LogWarning("Non-employee user attempted to delete farmer");
                 return Forbid();
             }
@@ -397,6 +477,7 @@ namespace Programming3A.Controllers
                 }
                 catch (Exception ex)
                 {
+                    // Rollback the transaction in case of an error
                     await transaction.RollbackAsync();
                     _logger.LogError(ex, "Error occurred while deleting farmer with ID {Id}", id);
                     throw;
@@ -404,15 +485,19 @@ namespace Programming3A.Controllers
             }
             catch (Exception ex)
             {
+                // Log the error and show a user-friendly message
                 _logger.LogError(ex, "Failed to delete farmer with ID {Id}", id);
                 TempData["ErrorMessage"] = "Failed to delete the farmer. Please try again.";
                 return RedirectToAction(nameof(Index));
             }
         }
 
+        // This method checks if a farmer with the specified ID exists in the database.
         private bool FarmerModelExists(int id)
         {
             return _context.Farmers.Any(e => e.FarmerId == id);
         }
     }
 }
+
+//---------------------------------------------End of File---------------------------------------------------------
