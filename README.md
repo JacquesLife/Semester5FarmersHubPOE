@@ -174,8 +174,6 @@ dotnet aspnet-codegenerator controller -name FarmerController \
 ```
 
 
-### Scaffold Employee Controller
-
 # How to Use Farmers Hub
 
 1. Register a User in the Registration page
