@@ -293,6 +293,50 @@
       "PackagePath": "staticwebassets/lib/qrcode.js"
     },
     {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/media/Image2.jpg",
+      "PackagePath": "staticwebassets/media/Image2.jpg"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/media/image1.jpg",
+      "PackagePath": "staticwebassets/media/image1.jpg"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/media/image3.jpg",
+      "PackagePath": "staticwebassets/media/image3.jpg"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/media/image4.jpg",
+      "PackagePath": "staticwebassets/media/image4.jpg"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/media/image5.jpg",
+      "PackagePath": "staticwebassets/media/image5.jpg"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/media/image6.jpg",
+      "PackagePath": "staticwebassets/media/image6.jpg"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/media/image7.jpg",
+      "PackagePath": "staticwebassets/media/image7.jpg"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/media/image8.jpg",
+      "PackagePath": "staticwebassets/media/image8.jpg"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/media/video1.mp4",
+      "PackagePath": "staticwebassets/media/video1.mp4"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/uploads/products/99ba887d-f2de-4cec-859e-2a1f9be2df3a_WBS.png",
+      "PackagePath": "staticwebassets/uploads/products/99ba887d-f2de-4cec-859e-2a1f9be2df3a_WBS.png"
+    },
+    {
+      "Id": "/Users/jacqueslife/Documents/Year3/Programming/POESem5/Programming3A/wwwroot/uploads/products/dbdae634-a1c4-4ff8-ba46-8b52c2661c61_WBS.png",
+      "PackagePath": "staticwebassets/uploads/products/dbdae634-a1c4-4ff8-ba46-8b52c2661c61_WBS.png"
+    },
+    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Programming3A.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

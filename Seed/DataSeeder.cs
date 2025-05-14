@@ -20,7 +20,7 @@ public static class DataSeeder
                 await roleManager.CreateAsync(new IdentityRole(role));
             }
         }
-
+        
         // Seed Admin User
         string adminEmail = "admin@farmhub.com";
         string adminPassword = "Admin123!";
@@ -30,7 +30,7 @@ public static class DataSeeder
             var result = await userManager.CreateAsync(adminUser, adminPassword);
             if (result.Succeeded)
             {
-                await userManager.AddToRoleAsync(adminUser, Roles.Admin);
+                await userManager.AddToRoleAsync(adminUser, Roles.Admin); 
             }
         }
     }
