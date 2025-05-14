@@ -229,3 +229,5 @@ Password: Admin123!
 - [Setting up SQLite Video](https://www.youtube.com/watch?v=S7SdtcIr28s)
 
 - [Setting up File Services](https://www.youtube.com/watch?v=hcoKLORWbjY)
+
+- [Claude for Frontend Help] (https://claude.ai/new)
