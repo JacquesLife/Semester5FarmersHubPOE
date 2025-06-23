@@ -1,0 +1,132 @@
+@model Programming3A.Models.ProductModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="bg-mint-light py-4 mb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-5 text-primary fw-bold">Product Details</h1>
+                <p class="lead text-muted">Viewing information for @Model.ProductName</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a asp-action="Index" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Products
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h4 class="card-title text-primary mb-4">Product Information</h4>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-primary">
+                            @Html.DisplayNameFor(model => model.ProductName)
+                        </div>
+                        <div class="col-md-8">
+                            @Html.DisplayFor(model => model.ProductName)
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-primary">
+                            @Html.DisplayNameFor(model => model.Category)
+                        </div>
+                        <div class="col-md-8">
+                            <span class="badge bg-primary">@Html.DisplayFor(model => model.Category)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-primary">
+                            @Html.DisplayNameFor(model => model.Description)
+                        </div>
+                        <div class="col-md-8">
+                            @Html.DisplayFor(model => model.Description)
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-primary">
+                            @Html.DisplayNameFor(model => model.Price)
+                        </div>
+                        <div class="col-md-8">
+                            @Html.DisplayFor(model => model.Price)
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-primary">
+                            @Html.DisplayNameFor(model => model.ProductionDate)
+                        </div>
+                        <div class="col-md-8">
+                            @Model.ProductionDate.ToString("yyyy-MM-dd")
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-primary">
+                            @Html.DisplayNameFor(model => model.Farmer)
+                        </div>
+                        <div class="col-md-8">
+                            @Html.DisplayFor(model => model.Farmer.FarmerId)
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-primary">
+                            <i class="bi bi-pencil me-2"></i>Edit Product
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary mb-3">Product Image</h5>
+                    <div class="text-center">
+                        <div class="product-image-container rounded overflow-hidden mb-3" style="height: 250px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa;">
+                            @if (!string.IsNullOrEmpty(Model.ImagePath))
+                            {
+                                <img src="/@Model.ImagePath" class="img-fluid" style="max-height: 100%; width: auto;" alt="@Model.ProductName" />
+                            }
+                            else
+                            {
+                                <div class="text-center text-muted">
+                                    <i class="bi bi-image" style="font-size: 3rem;"></i>
+                                    <p class="mt-2">No image available</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm bg-primary bg-opacity-10">
+                <div class="card-body p-4">
+                    <h5 class="text-primary">
+                        <i class="bi bi-info-circle me-2"></i>Product Summary
+                    </h5>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="bi bi-tag me-2"></i> <strong>Category:</strong> @Model.Category</li>
+                        <li class="mb-2"><i class="bi bi-currency-dollar me-2"></i> <strong>Price:</strong> R @Model.Price.ToString("0.00")</li>
+                        <li class="mb-2"><i class="bi bi-calendar me-2"></i> <strong>Production Date:</strong> @Model.ProductionDate.ToString("yyyy-MM-dd")</li>
+                        <li><i class="bi bi-person me-2"></i> <strong>Farmer ID:</strong> @Model.Farmer.FarmerId</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

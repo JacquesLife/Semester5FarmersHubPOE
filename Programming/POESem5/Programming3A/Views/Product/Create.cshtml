@@ -1,0 +1,184 @@
+@model Programming3A.Models.ProductModel
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="bg-mint-light py-4 mb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-5 text-primary fw-bold">Create Product</h1>
+                <p class="lead text-muted">Add a new product to your inventory</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a asp-action="Index" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Products
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-custom"
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h4 class="card-title text-primary mb-4">Product Information</h4>
+                    
+                    <form asp-action="Create" enctype="multipart/form-data">
+                        <div asp-validation-summary="All" class="text-danger alert alert-danger p-3 mb-4" style="display:@(ViewData.ModelState.IsValid ? "none" : "block")"></div>
+                        
+                        <div class="mb-4">
+                            <label asp-for="ProductName" class="form-label fw-bold text-primary"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-tag"></i>
+                                </span>
+                                <input asp-for="ProductName" class="form-control" placeholder="Enter product name" />
+                            </div>
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label asp-for="Category" class="form-label fw-bold text-primary"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-bookmark"></i>
+                                </span>
+                                <input asp-for="Category" class="form-control" placeholder="Enter product category" />
+                            </div>
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label asp-for="Description" class="form-label fw-bold text-primary"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-card-text"></i>
+                                </span>
+                                <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter product description"></textarea>
+                            </div>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label asp-for="ImageFile" class="form-label fw-bold text-primary"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-image"></i>
+                                </span>
+                                <input type="file" asp-for="ImageFile" class="form-control" accept="image/*" onchange="previewImage(this);" />
+                            </div>
+                            <span asp-validation-for="ImageFile" class="text-danger"></span>
+                            <small class="text-muted">Supported formats: JPG, PNG, GIF. Max size: 5MB</small>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label asp-for="Price" class="form-label fw-bold text-primary"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">R</span>
+                                    <input asp-for="Price" class="form-control" type="number" step="0.01" min="0.01" max="99999.99" placeholder="0.00" />
+                                </div>
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <label asp-for="ProductionDate" class="form-label fw-bold text-primary"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="bi bi-calendar"></i>
+                                    </span>
+                                    <input asp-for="ProductionDate" class="form-control" type="date" />
+                                </div>
+                                <span asp-validation-for="ProductionDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-plus-circle me-2"></i>Create Product
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle me-2"></i>Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary mb-3">Product Preview</h5>
+                    <div class="text-center">
+                        <div id="imagePreview" class="placeholder-image bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 200px; overflow: hidden;">
+                            <i class="bi bi-image text-muted" style="font-size: 3rem;"></i>
+                        </div>
+                        <p id="previewText" class="text-muted small">Upload an image to see preview</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm bg-info bg-opacity-10">
+                <div class="card-body p-4">
+                    <h5 class="text-info">
+                        <i class="bi bi-info-circle me-2"></i>Helpful Tips
+                    </h5>
+                    <ul class="mt-3 small">
+                        <li class="mb-2">Use a clear and descriptive product name</li>
+                        <li class="mb-2">Include detailed specifications in the description</li>
+                        <li class="mb-2">Provide an accurate price in Rand</li>
+                        <li class="mb-2">Make sure the production date is correct</li>
+                        <li>Add a high-quality image URL for better visibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            // Set default production date to today
+            if (!$('#ProductionDate').val()) {
+                $('#ProductionDate').val(new Date().toISOString().split('T')[0]);
+            }
+            
+            // Custom validation for price
+            $('form').submit(function () {
+                var price = parseFloat($('#Price').val());
+                if (isNaN(price) || price <= 0 || price > 99999.99) {
+                    alert('Price must be between R0.01 and R99,999.99');
+                    return false;
+                }
+                return true;
+            });
+        });
+
+        function previewImage(input) {
+            var preview = document.getElementById('imagePreview');
+            var previewText = document.getElementById('previewText');
+            
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    preview.innerHTML = '<img src="' + e.target.result + '" class="img-fluid" style="max-height: 200px; width: auto;">';
+                    previewText.textContent = 'Image Preview';
+                };
+                
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.innerHTML = '<i class="bi bi-image text-muted" style="font-size: 3rem;"></i>';
+                previewText.textContent = 'Upload an image to see preview';
+            }
+        }
+    </script>
+}

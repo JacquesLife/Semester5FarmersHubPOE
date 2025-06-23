@@ -1,0 +1,100 @@
+@model Programming3A.Models.FarmerModel
+@{
+    ViewData["Title"] = "Edit Farmer";
+}
+
+<div class="bg-mint-light py-4 mb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-5 text-primary fw-bold">Edit Farmer</h1>
+                <p class="lead text-muted">Update information for @Model.FullName</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a asp-action="Details" asp-route-id="@Model.FarmerId" class="btn btn-outline-primary">
+                    <i class="bi bi-eye me-2"></i>View Details
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h4 class="card-title text-primary mb-4">Farmer Information</h4>
+                    
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-4"></div>
+                        <input type="hidden" asp-for="FarmerId" />
+                        <input type="hidden" asp-for="UserId" />
+                        
+                        <div class="mb-4">
+                            <label asp-for="FullName" class="form-label fw-bold text-primary"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-person"></i>
+                                </span>
+                                <input asp-for="FullName" class="form-control" placeholder="Enter full name" />
+                            </div>
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label asp-for="ContactNumber" class="form-label fw-bold text-primary"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-telephone"></i>
+                                </span>
+                                <input asp-for="ContactNumber" class="form-control" placeholder="Enter contact number" />
+                            </div>
+                            <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save me-2"></i>Save Changes
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle me-2"></i>Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary mb-3">Farmer Profile</h5>
+                    <div class="text-center">
+                        <div class="placeholder-image bg-light rounded-circle d-flex align-items-center justify-content-center mb-3" style="height: 150px; width: 150px; margin: 0 auto;">
+                            <i class="bi bi-person text-muted" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="mb-0">@Model.FullName</h5>
+                        <p class="text-muted small">Farmer ID: @Model.FarmerId</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm bg-warning bg-opacity-10">
+                <div class="card-body p-4">
+                    <h5 class="text-warning">
+                        <i class="bi bi-exclamation-triangle me-2"></i>Important Note
+                    </h5>
+                    <p class="small mt-3 mb-0">
+                        Please ensure all information provided is accurate and up-to-date. 
+                        These details will be used for communication and identification purposes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

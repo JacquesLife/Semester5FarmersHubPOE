@@ -1,0 +1,185 @@
+@model Programming3A.Models.ProductModel
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="bg-mint-light py-4 mb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-5 text-primary fw-bold">Edit Product</h1>
+                <p class="lead text-muted">Update information for @Model.ProductName</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a asp-action="Index" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Products
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h4 class="card-title text-primary mb-4">Product Information</h4>
+                    
+                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <input type="hidden" asp-for="ProductId" />
+                        <input type="hidden" asp-for="ImagePath" />
+                        
+                        @if (User.IsInRole("Employee"))
+                        {
+                            <div class="form-floating mb-4">
+                                <select asp-for="FarmerId" class="form-select" asp-items="ViewBag.FarmerId"></select>
+                                <label asp-for="FarmerId">Farmer</label>
+                                <span asp-validation-for="FarmerId" class="text-danger"></span>
+                            </div>
+                        }
+                        else
+                        {
+                            <input type="hidden" asp-for="FarmerId" />
+                        }
+
+                        <div class="form-floating mb-4">
+                            <input asp-for="ProductName" class="form-control" placeholder="Enter product name" />
+                            <label asp-for="ProductName">Product Name</label>
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <input asp-for="Category" class="form-control" placeholder="Enter category" />
+                            <label asp-for="Category">Category</label>
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <textarea asp-for="Description" class="form-control" placeholder="Enter description" style="height: 100px"></textarea>
+                            <label asp-for="Description">Description</label>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Price" class="form-control" placeholder="Enter price" />
+                                    <label asp-for="Price">Price</label>
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="ProductionDate" class="form-control" type="date" />
+                                    <label asp-for="ProductionDate">Production Date</label>
+                                    <span asp-validation-for="ProductionDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="ImageFile" class="form-label">Product Image</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-image"></i>
+                                </span>
+                                <input type="file" asp-for="ImageFile" class="form-control" accept="image/*" onchange="previewImage(this);" />
+                            </div>
+                            <span asp-validation-for="ImageFile" class="text-danger"></span>
+                            <small class="text-muted d-block">Supported formats: JPG, PNG, GIF. Max size: 5MB</small>
+                            @if (!string.IsNullOrEmpty(Model.ImagePath))
+                            {
+                                <small class="text-muted d-block">Current image: @Model.ImagePath</small>
+                            }
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-circle me-2"></i>Save Changes
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle me-2"></i>Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary mb-3">Product Preview</h5>
+                    <div class="text-center mb-3">
+                        <div id="imagePreview" class="placeholder-image bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 200px; overflow: hidden;">
+                            @if (!string.IsNullOrEmpty(Model.ImagePath))
+                            {
+                                <img src="/@Model.ImagePath" class="img-fluid" style="max-height: 200px; width: auto;" alt="@Model.ProductName" />
+                            }
+                            else
+                            {
+                                <i class="bi bi-image text-muted" style="font-size: 3rem;"></i>
+                            }
+                        </div>
+                    </div>
+                    <div class="product-preview">
+                        <h4 id="previewName">@Model.ProductName</h4>
+                        <span class="badge bg-primary" id="previewCategory">@Model.Category</span>
+                        <p class="mt-2 text-muted preview-description" id="previewDescription">@Model.Description</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="text-primary fw-bold fs-4" id="previewPrice">R @Model.Price.ToString("0.00")</span>
+                            <small class="text-muted" id="previewDate">@Model.ProductionDate.ToString("yyyy-MM-dd")</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        // Live preview updates
+        $(document).ready(function() {
+            $('#ProductName').on('input', function() {
+                $('#previewName').text($(this).val());
+            });
+            
+            $('#Category').on('input', function() {
+                $('#previewCategory').text($(this).val());
+            });
+            
+            $('#Description').on('input', function() {
+                $('#previewDescription').text($(this).val());
+            });
+            
+            $('#Price').on('input', function() {
+                $('#previewPrice').text('R ' + parseFloat($(this).val()).toFixed(2));
+            });
+            
+            $('#ProductionDate').on('input', function() {
+                $('#previewDate').text($(this).val());
+            });
+        });
+
+        function previewImage(input) {
+            var preview = document.getElementById('imagePreview');
+            
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    preview.innerHTML = '<img src="' + e.target.result + '" class="img-fluid" style="max-height: 200px; width: auto;">';
+                };
+                
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.innerHTML = '@if (!string.IsNullOrEmpty(Model.ImagePath)) {<text><img src="/@Model.ImagePath" class="img-fluid" style="max-height: 200px; width: auto;" alt="@Model.ProductName" /></text>} else {<text><i class="bi bi-image text-muted" style="font-size: 3rem;"></i></text>}';
+            }
+        }
+    </script>
+}
+

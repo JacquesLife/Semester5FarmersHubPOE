@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Hero Section with Video Background -->
+<div class="home-hero">
+    <video autoplay muted loop id="background-video">
+        <source src="media/video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <div class="overlay">
+        <div class="hero-content text-center">
+            <h1 class="hero-title">Welcome to <span class="text-mint">FarmersHub</span></h1>
+            <p class="hero-subtitle">Connecting farms with communities for a sustainable future</p>
+            <div class="mt-4">
+                <a href="/About" class="btn btn-lg btn-mint-primary me-2">Learn More</a>
+                <a href="/Product" class="btn btn-lg btn-mint-outline">Browse Products</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-lg-6 mx-auto text-center">
+            <h2 class="section-title">Why Choose FarmersHub?</h2>
+            <p class="lead text-muted">Empowering local agriculture through innovative solutions</p>
+        </div>
+    </div>
+    
+    <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-md-4">
+            <div class="card hover-card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mx-auto mb-3">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h4 class="card-title">Fresh Products</h4>
+                    <p class="card-text text-muted">Access locally grown, fresh farm products directly from the source.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="col-md-4">
+            <div class="card hover-card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mx-auto mb-3">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h4 class="card-title">Support Farmers</h4>
+                    <p class="card-text text-muted">Help local farmers thrive by purchasing directly from their farms.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="col-md-4">
+            <div class="card hover-card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mx-auto mb-3">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 class="card-title">Sustainable Practices</h4>
+                    <p class="card-text text-muted">Promoting eco-friendly and sustainable farming methods.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="bg-mint-pattern py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <h2 class="mb-3">Ready to get started?</h2>
+                <p class="lead mb-4">Join our community of farmers and customers today to experience the benefits of direct farm-to-table connections.</p>
+                <a href="/Identity/Account/Register" class="btn btn-mint-primary btn-lg">Sign Up Now</a>
+            </div>
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4 bg-cream-soft rounded">
+                        <div class="text-center mb-3">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <blockquote class="blockquote text-center mb-0">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis, cupiditate! Numquam, quae temporibus. Aliquam sequi quae quo earum, quis nihil voluptatibus vel voluptatum animi officiis beatae labore, ipsum provident non?</p>
+                            <footer class="blockquote-footer mt-2">John Farmer, <cite title="Source Title">Local Organic Farm</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

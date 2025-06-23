@@ -1,0 +1,56 @@
+@model IEnumerable<Programming3A.Models.ProductModel>
+@{
+    ViewData["Title"] = "Manage Products";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary mb-0">All Products</h2>
+        <a asp-action="ManageUsers" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+        </a>
+    </div>
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Production Date</th>
+                            <th>Farmer</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Model)
+                        {
+                            <tr>
+                                <td>@product.ProductName</td>
+                                <td>@product.Category</td>
+                                <td class="text-truncate" style="max-width: 200px;">@product.Description</td>
+                                <td>R @product.Price.ToString("0.00")</td>
+                                <td>@product.ProductionDate.ToString("yyyy-MM-dd")</td>
+                                <td>@product.Farmer?.FullName</td>
+                                <td>
+                                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-primary me-2">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </a>
+                                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.ProductId" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" /> 

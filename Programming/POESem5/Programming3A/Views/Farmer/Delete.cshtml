@@ -1,0 +1,116 @@
+@model Programming3A.Models.FarmerModel
+@{
+    ViewData["Title"] = "Delete Farmer";
+}
+
+<div class="bg-danger bg-opacity-10 py-4 mb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-5 text-danger fw-bold">Delete Farmer</h1>
+                <p class="lead text-muted">Please confirm you want to delete this farmer</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a asp-action="Details" asp-route-id="@Model.FarmerId" class="btn btn-outline-danger">
+                    <i class="bi bi-eye me-2"></i>View Details
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card border-danger border-opacity-25 shadow-sm">
+                <div class="card-header bg-danger bg-opacity-10 border-danger border-opacity-25">
+                    <h4 class="text-danger m-0">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Warning: This action cannot be undone
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="alert alert-danger">
+                        <strong>You are about to permanently delete the farmer:</strong> @Model.FullName
+                    </div>
+                    
+                    <h5 class="card-title text-danger mb-4">Farmer Information</h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-secondary">
+                            @Html.DisplayNameFor(model => model.FarmerId)
+                        </div>
+                        <div class="col-md-8">
+                            @Html.DisplayFor(model => model.FarmerId)
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-secondary">
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </div>
+                        <div class="col-md-8">
+                            @Html.DisplayFor(model => model.FullName)
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-secondary">
+                            @Html.DisplayNameFor(model => model.ContactNumber)
+                        </div>
+                        <div class="col-md-8">
+                            @Html.DisplayFor(model => model.ContactNumber)
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold text-secondary">
+                            @Html.DisplayNameFor(model => model.User)
+                        </div>
+                        <div class="col-md-8">
+                            @Html.DisplayFor(model => model.User.Id)
+                        </div>
+                    </div>
+                    
+                    <form asp-action="Delete" class="mt-4">
+                        <input type="hidden" asp-for="FarmerId" />
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash me-2"></i>Confirm Delete
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>Cancel and Return
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-danger mb-3">Farmer Details</h5>
+                    <div class="text-center">
+                        <div class="placeholder-image bg-light rounded-circle d-flex align-items-center justify-content-center mb-3" style="height: 150px; width: 150px; margin: 0 auto;">
+                            <i class="bi bi-person text-muted" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="mb-0">@Model.FullName</h5>
+                        <p class="text-muted small">Farmer ID: @Model.FarmerId</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm bg-danger bg-opacity-10">
+                <div class="card-body p-4">
+                    <h5 class="text-danger">
+                        <i class="bi bi-info-circle me-2"></i>Important Note
+                    </h5>
+                    <p class="small mt-3 mb-0">
+                        Deleting this farmer will permanently remove all their information from the system.
+                        This may also affect related products and records. This action cannot be undone.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
